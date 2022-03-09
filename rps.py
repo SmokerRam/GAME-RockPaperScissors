@@ -138,6 +138,7 @@ def menuGame(op):
     clear()
 
     global player1, player2, rounds
+    boolean = True
 
     if op == 1:
 
@@ -145,8 +146,17 @@ def menuGame(op):
         print(tittle)
         print(f"{equals}\n\n")
 
-        rounds = int(input("Please, enter how many rounds you will play: "))
-        print()
+        while boolean:
+            rounds = int(input("Please, enter how many rounds you will play: "))
+
+            if rounds % 2 == 1:
+                boolean = False
+                print()
+
+            else:
+                print("\n|--- ERROR: The number of rounds must be odd ---|\n")
+            
+            
 
         player1 = input("Please, enter player 1 name: ")
         print()
@@ -160,8 +170,15 @@ def menuGame(op):
         print(tittle)
         print(f"{equals}\n\n")
 
-        rounds = int(input("Please, enter how many rounds you will play: "))
-        print()
+        while boolean:
+            rounds = int(input("Please, enter how many rounds you will play: "))
+
+            if rounds % 2 == 1:
+                boolean = False
+                print()
+
+            else:
+                print("\n|--- ERROR: The number of rounds must be odd ---|\n")
 
         player1 = input("Please, enter player name: ")
         player2 = "IA"
