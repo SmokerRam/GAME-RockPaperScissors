@@ -1,6 +1,7 @@
 #Random Librery
 import os
 import getpass
+import random
 
 #Constants
 equals = ("==============================================")
@@ -22,7 +23,7 @@ def whoWins(x, y):
 
     return boolean
 
-def rockPaperScissors():
+def rockPaperScissors(op):
 
     clear()
 
@@ -33,34 +34,69 @@ def rockPaperScissors():
     print(tittle)
     print(f"{equals}\n\n")
 
-    while (wins_p1 + wins_p2) != rounds:
+    if op == 1:
 
-        print(f"|--------------- Best of {rounds} -----------|")
-        print(f"|--- {player1} Wins: {wins_p1} | {player2} Wins: {wins_p2} ---|\n")
-        
-        shape_p1 = getpass.getpass(f"Please, choose a shape {player1} (r, p, s): ").lower()
-        print()
-        shape_p2 = getpass.getpass(f"Please, choose a shape {player2} (r, p, s): ").lower()
+        while (wins_p1 + wins_p2) != rounds:
 
-
-        if shape_p1 == shape_p2:
-            print("\n|--- DRAW ---|\n")
-
-        elif whoWins(shape_p1, shape_p2):
-            wins_p1 += 1
-            clear()
-            print(equals)
-            print(f"|---------------- {player1} Wins ----------------|")
-            print(equals)
+            print(f"|--------------- Best of {rounds} -----------|")
+            print(f"|--- {player1} Wins: {wins_p1} | {player2} Wins: {wins_p2} ---|\n")
+            
+            shape_p1 = getpass.getpass(f"Please, choose a shape {player1} (r, p, s): ").lower()
             print()
-        
-        else:
-            wins_p2 += 1
-            clear()
-            print(equals)
-            print(f"|---------------- {player2} Wins ----------------|")
-            print(equals)
+            shape_p2 = getpass.getpass(f"Please, choose a shape {player2} (r, p, s): ").lower()
+
+
+            if shape_p1 == shape_p2:
+                clear()
+                print("\n------------------ DRAW --------------|\n")
+
+            elif whoWins(shape_p1, shape_p2):
+                wins_p1 += 1
+                clear()
+                print(equals)
+                print(f"|---------------- {player1} Wins ----------------|")
+                print(equals)
+                print()
+            
+            else:
+                wins_p2 += 1
+                clear()
+                print(equals)
+                print(f"|---------------- {player2} Wins ----------------|")
+                print(equals)
+                print()
+
+    else:
+
+         while (wins_p1 + wins_p2) != rounds:
+
+            print(f"|--------------- Best of {rounds} -----------|")
+            print(f"|--- {player1} Wins: {wins_p1} | {player2} Wins: {wins_p2} ---|\n")
+            
+            shape_p1 = getpass.getpass(f"Please, choose a shape {player1} (r, p, s): ").lower()
             print()
+            shape_p2 = random.choice(shapes)
+
+
+            if shape_p1 == shape_p2:
+                clear()
+                print("\n|----------------- DRAW --------------|\n")
+
+            elif whoWins(shape_p1, shape_p2):
+                wins_p1 += 1
+                clear()
+                print(equals)
+                print(f"|---------------- {player1} Wins ----------------|")
+                print(equals)
+                print()
+            
+            else:
+                wins_p2 += 1
+                clear()
+                print(equals)
+                print(f"|---------------- {player2} Wins ----------------|")
+                print(equals)
+                print()
 
     if wins_p1 > wins_p2:
 
@@ -104,7 +140,7 @@ def menuGame(op):
         print()
         player2 = input("Please, enter player 2 name: ")
 
-        rockPaperScissors()
+        rockPaperScissors(1)
 
     elif op == 2:
 
@@ -118,7 +154,7 @@ def menuGame(op):
         player1 = input("Please, enter player name: ")
         player2 = "IA"
 
-        rockPaperScissors()
+        rockPaperScissors(2)
 
     elif op == 3:
 
