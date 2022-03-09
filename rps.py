@@ -4,32 +4,13 @@ import getpass
 
 #Constants
 equals = ("==============================================")
+tittle = ('|-------------ROCK, PAPER, SCISSORS----------|')
 shapes = ["r", "p", "s"]
 clear = lambda: os.system('cls')
 
-def setNamesRounds(op):
-
-    global player1, player2, rounds
-
-    print(equals)
-    print("|-------------ROCK, PAPER, SCISSORS----------|")
-    print(f"{equals}\n\n")
-
-    rounds = int(input("Please, enter how many rounds you will play: "))
-    print()
-
-    if op == 1:
-        player1 = input("Please, enter player 1 name: ")
-        print()
-        player2 = input("Please, enter player 2 name: ")
-
-    else:
-        player1 = input("Please, enter player name: ")
-        player2 = "IA"
-
 def whoWins(x, y):
 
-    shape_x = X
+    shape_x = x
     shape_y = y
     boolean = False
 
@@ -41,37 +22,103 @@ def whoWins(x, y):
 
     return boolean
 
+def rockPaperScissors():
 
-
-def rockPaperScissors(op):
+    clear()
 
     wins_p1 = 0
     wins_p2 = 0
 
+    print(equals)
+    print(tittle)
+    print(f"{equals}\n\n")
+
+    while (wins_p1 + wins_p2) != rounds:
+
+        print(f"|--------------- Best of {rounds} -----------|")
+        print(f"|--- {player1} Wins: {wins_p1} | {player2} Wins: {wins_p2} ---|\n")
+        
+        shape_p1 = getpass.getpass(f"Please, choose a shape {player1} (r, p, s): ").lower()
+        print()
+        shape_p2 = getpass.getpass(f"Please, choose a shape {player2} (r, p, s): ").lower()
+
+
+        if shape_p1 == shape_p2:
+            print("\n|--- DRAW ---|\n")
+
+        elif whoWins(shape_p1, shape_p2):
+            wins_p1 += 1
+            clear()
+            print(equals)
+            print(f"|---------------- {player1} Wins ----------------|")
+            print(equals)
+            print()
+        
+        else:
+            wins_p2 += 1
+            clear()
+            print(equals)
+            print(f"|---------------- {player2} Wins ----------------|")
+            print(equals)
+            print()
+
+    if wins_p1 > wins_p2:
+
+        clear()
+        print(f"|------------------- Best of {rounds} --------------|")
+        print(f"|------- {player1} Wins: {wins_p1} | {player2} Wins: {wins_p2} ------|\n")
+
+        print(equals)
+        print(f"|---------------- {player1} Wins ----------------|")
+        print(equals)
+
+    else:
+
+        clear()
+        print(f"|------------------- Best of {rounds} --------------|")
+        print(f"|------- {player1} Wins: {wins_p1} | {player2} Wins: {wins_p2} ------|\n")
+
+        print(equals)
+        print(f"|---------------- {player2} Wins ----------------|")
+        print(equals)
+
+    input('\nPress any key for continue...')
+    main()
+
+def menuGame(op):
+
+    clear()
+
+    global player1, player2, rounds
+
     if op == 1:
 
-        setNamesRounds(1)
+        print(equals)
+        print(tittle)
+        print(f"{equals}\n\n")
 
-        while (wins_p1 + wins_p2) != rounds:
+        rounds = int(input("Please, enter how many rounds you will play: "))
+        print()
 
-            print(f"|--- {player1} Wins: {wins_p1} | {player2} Wins: {wins_p2} ---|\n")
-            
-            shape_p1 = getpass.getpass("Please, choose a shape (r, p, s): ")
-            print()
-            shape_p2 = getpass.getpass("Please, choose a shape (r, p, s): ")
+        player1 = input("Please, enter player 1 name: ")
+        print()
+        player2 = input("Please, enter player 2 name: ")
 
-            if shape_p1 == shape_p2:
-                print("\n|--- DRAW ---|\n")
-
-            elif whoWins(shape_p1, shape_p2):
-                wins_p1 += 1
-            
-            else:
-                wins_p2 += 1
+        rockPaperScissors()
 
     elif op == 2:
 
-        setNames(2)
+        print(equals)
+        print(tittle)
+        print(f"{equals}\n\n")
+
+        rounds = int(input("Please, enter how many rounds you will play: "))
+        print()
+
+        player1 = input("Please, enter player name: ")
+        player2 = "IA"
+
+        rockPaperScissors()
 
     elif op == 3:
 
@@ -103,7 +150,7 @@ def menu(op):
 
         while True:
             print(equals)
-            print("|-------------ROCK, PAPER, SCISSORS----------|")
+            print(tittle)
             print(f"{equals}\n\n")
 
             try:
@@ -112,7 +159,7 @@ def menu(op):
                 print("3. Controls")
                 print("4. Back")
 
-                mode = int(input("\nPlease, choose a mode to continue"))
+                mode = int(input("\nPlease, choose a mode to continue: "))
 
                 if mode < 1 or mode > 4:
                     print("\n|--- ERROR: The option entered is invalid ---|\n")
@@ -121,7 +168,7 @@ def menu(op):
                 print("\n|--- ERROR: The data entered is invalid ---|\n")
 
             finally:
-                rockPaperScissors(mode)
+                menuGame(mode)
 
     elif op == 2:
         
@@ -160,7 +207,7 @@ def main():
           
         print(equals)
         print("|---- Welcome to 'Rock, Paper, Scissors' ----|")
-        print(f"{equals}\n")
+        print(f"{equals}\n\n")
 
         try:
             print("1. Play")
