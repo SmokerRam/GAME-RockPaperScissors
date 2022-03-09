@@ -178,16 +178,22 @@ def menuGame(op):
         print(f"{equals}\n\n")
 
         while boolean:
-            rounds = int(input("Please, enter how many rounds you will play: "))
+            try:
+                rounds = int(input("Please, enter how many rounds you will play: "))
 
-            if rounds % 2 == 1:
-                boolean = False
-                print()
+                if rounds % 2 == 1:
+                    boolean = False
+                    print()
 
-            else:
-                print("\n|--- ERROR: The number of rounds must be odd ---|\n")
+                else:
+                    print("\n|--- ERROR: The number of rounds must be odd ---|\n")
+
+                if rounds < 0 or rounds == 1:
+                    boolean = True
+                    print("|--- ERROR: The number of rounds must be greater than 1 ---|\n")
             
-            
+            except (ValueError, TypeError, IndexError):
+                print("\n|--- ERROR: The data entered is invalid ---|\n")              
 
         player1 = input("Please, enter player 1 name: ")
         print()
@@ -202,14 +208,22 @@ def menuGame(op):
         print(f"{equals}\n\n")
 
         while boolean:
-            rounds = int(input("Please, enter how many rounds you will play: "))
+            try:
+                rounds = int(input("Please, enter how many rounds you will play: "))
 
-            if rounds % 2 == 1:
-                boolean = False
-                print()
+                if rounds % 2 == 1:
+                    boolean = False
+                    print()
 
-            else:
-                print("\n|--- ERROR: The number of rounds must be odd ---|\n")
+                else:
+                    print("\n|--- ERROR: The number of rounds must be odd ---|\n")
+
+                if rounds < 0 or rounds == 1:
+                    boolean = True
+                    print("|--- ERROR: The number of rounds must be greater than 1 ---|\n")
+            
+            except (ValueError, TypeError, IndexError):
+                print("\n|--- ERROR: The data entered is invalid ---|\n")
 
         player1 = input("Please, enter player name: ")
         player2 = "IA"
