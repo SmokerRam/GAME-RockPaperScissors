@@ -1,6 +1,6 @@
 #Random Librery
 import os
-import gatepass
+import getpass
 
 #Constants
 equals = ("==============================================")
@@ -16,6 +16,7 @@ def setNamesRounds(op):
     print(f"{equals}\n\n")
 
     rounds = int(input("Please, enter how many rounds you will play: "))
+    print()
 
     if op == 1:
         player1 = input("Please, enter player 1 name: ")
@@ -55,14 +56,14 @@ def rockPaperScissors(op):
 
             print(f"|--- {player1} Wins: {wins_p1} | {player2} Wins: {wins_p2} ---|\n")
             
-            shape_p1 = gatepass.gatepass("Please, choose a shape (r, p, s): ")
+            shape_p1 = getpass.getpass("Please, choose a shape (r, p, s): ")
             print()
-            shape_p2 = gatepass.gatepass("Please, choose a shape (r, p, s): ")
+            shape_p2 = getpass.getpass("Please, choose a shape (r, p, s): ")
 
             if shape_p1 == shape_p2:
                 print("\n|--- DRAW ---|\n")
 
-            elif whoWins(shape_p1, shape_p2) == True:
+            elif whoWins(shape_p1, shape_p2):
                 wins_p1 += 1
             
             else:
