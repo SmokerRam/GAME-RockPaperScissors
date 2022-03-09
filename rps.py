@@ -29,6 +29,7 @@ def rockPaperScissors(op):
 
     wins_p1 = 0
     wins_p2 = 0
+    boolean = True
 
     print(equals)
     print(tittle)
@@ -40,10 +41,30 @@ def rockPaperScissors(op):
 
             print(f"|--------------- Best of {rounds} -----------|")
             print(f"|--- {player1} Wins: {wins_p1} | {player2} Wins: {wins_p2} ---|\n")
-            
-            shape_p1 = getpass.getpass(f"Please, choose a shape {player1} (r, p, s): ").lower()
-            print()
-            shape_p2 = getpass.getpass(f"Please, choose a shape {player2} (r, p, s): ").lower()
+
+            while boolean:
+                shape_p1 = getpass.getpass(f"Please, choose a shape {player1} (r, p, s): ").lower()
+
+                if shape_p1 in shapes:
+                    print()
+                    boolean = False 
+                
+                else:
+                    print(f"\n|--- ERROR: {player1}, the shape entered is invalid ---|\n")
+
+            boolean = True
+
+            while boolean:
+                shape_p2 = getpass.getpass(f"Please, choose a shape {player2} (r, p, s): ").lower()
+
+                if shape_p2 in shapes:
+                    print()
+                    boolean = False 
+                
+                else:
+                    print(f"\n|--- ERROR: {player2}, the shape entered is invalid ---|\n")
+
+            boolean = True
 
 
             if shape_p1 == shape_p2:
@@ -79,8 +100,18 @@ def rockPaperScissors(op):
             print(f"|--------------- Best of {rounds} -----------|")
             print(f"|--- {player1} Wins: {wins_p1} | {player2} Wins: {wins_p2} ---|\n")
             
-            shape_p1 = getpass.getpass(f"Please, choose a shape {player1} (r, p, s): ").lower()
-            print()
+            while boolean:
+                shape_p1 = getpass.getpass(f"Please, choose a shape {player1} (r, p, s): ").lower()
+
+                if shape_p1 in shapes:
+                    print()
+                    boolean = False 
+                
+                else:
+                    print(f"\n|--- ERROR: {player1}, the shape entered is invalid ---|\n")
+
+            boolean = True
+            
             shape_p2 = random.choice(shapes)
 
 
