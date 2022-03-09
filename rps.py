@@ -48,13 +48,18 @@ def rockPaperScissors(op):
 
             if shape_p1 == shape_p2:
                 clear()
-                print("\n------------------ DRAW --------------|\n")
+                print(equals)
+                print("|------------------- DRAW ------------------|")
+                print(f"|------- {player1} Shape: {shape_p1.upper()} | {player2} Shape: {shape_p2.upper()} ------|")
+                print(equals)
+                print()
 
             elif whoWins(shape_p1, shape_p2):
                 wins_p1 += 1
                 clear()
                 print(equals)
                 print(f"|---------------- {player1} Wins ----------------|")
+                print(f"|------- {player1} Shape: {shape_p1.upper()} | {player2} Shape: {shape_p2.upper()} ------|")
                 print(equals)
                 print()
             
@@ -63,6 +68,7 @@ def rockPaperScissors(op):
                 clear()
                 print(equals)
                 print(f"|---------------- {player2} Wins ----------------|")
+                print(f"|------- {player1} Shape: {shape_p1.upper()} | {player2} Shape: {shape_p2.upper()} ------|")
                 print(equals)
                 print()
 
@@ -80,13 +86,18 @@ def rockPaperScissors(op):
 
             if shape_p1 == shape_p2:
                 clear()
-                print("\n|----------------- DRAW --------------|\n")
+                print(equals)
+                print("|------------------- DRAW ------------------|")
+                print(f"|------- {player1} Shape: {shape_p1.upper()} | {player2} Shape: {shape_p2.upper()} ------|")
+                print(equals)
+                print()
 
             elif whoWins(shape_p1, shape_p2):
                 wins_p1 += 1
                 clear()
                 print(equals)
                 print(f"|---------------- {player1} Wins ----------------|")
+                print(f"|------- {player1} Shape: {shape_p1.upper()} | {player2} Shape: {shape_p2.upper()} ------|")
                 print(equals)
                 print()
             
@@ -95,13 +106,14 @@ def rockPaperScissors(op):
                 clear()
                 print(equals)
                 print(f"|---------------- {player2} Wins ----------------|")
+                print(f"|------- {player1} Shape: {shape_p1.upper()} | {player2} Shape: {shape_p2.upper()} ------|")
                 print(equals)
                 print()
 
     if wins_p1 > wins_p2:
 
         clear()
-        print(f"|------------------- Best of {rounds} --------------|")
+        print(f"|----------------- Best of {rounds} ----------------|")
         print(f"|------- {player1} Wins: {wins_p1} | {player2} Wins: {wins_p2} ------|\n")
 
         print(equals)
@@ -111,7 +123,7 @@ def rockPaperScissors(op):
     else:
 
         clear()
-        print(f"|------------------- Best of {rounds} --------------|")
+        print(f"|----------------- Best of {rounds} ----------------|")
         print(f"|------- {player1} Wins: {wins_p1} | {player2} Wins: {wins_p2} ------|\n")
 
         print(equals)
