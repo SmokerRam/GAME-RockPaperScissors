@@ -1,4 +1,4 @@
-#Random Librery
+#Libraries
 import os
 import getpass
 import random
